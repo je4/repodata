@@ -1,0 +1,12 @@
+Index="alma-full"
+[Elasticsearch]
+Adresses=[
+    "https://localhost:8080",
+#    "https://localhost:8081",
+#    "https://localhost:8082",
+#    "https://localhost:8083",
+#    "https://localhost:8084"
+]
+CaCert="./config/ca.cert.pem"
+#CertificateFingerprint="2D:51:25:AB:34:0B:57:83:BC:79:3B:A9:2D:B2:6E:63:95:FC:BE:ED:6A:2E:00:F8:11:FE:75:B6:9A:EF:2B:0A"
+Apikey="%%ELASTIC_API_KEY%%"
