@@ -19,7 +19,7 @@ import (
 
 var cfgFile = flag.String("cfg", "", "path to toml configuration file")
 
-var subRegexp = regexp.MustCompile(`^\|([a-z]+)\s+(.*)$`)
+var subRegexp = regexp.MustCompile(`^\|([a-z0-9]+)\s+(.*)$`)
 
 func main() {
 	var x = []string{"hello", "hello2"}
@@ -41,7 +41,7 @@ func main() {
 			"flags": {Value: "e-rara"},
 		},
 	}
-	srch, err := es8.Search().Query(query).Scroll("2h").Do(context.Background())
+	srch, err := es8.Search().Query(query).Scroll("2m").Do(context.Background())
 	if err != nil {
 		log.Panic().Stack().Err(err).Msg("cannot query")
 	}
@@ -96,7 +96,8 @@ func main() {
 			if err != nil {
 				zLogger.Panic().Err(err)
 			}
-			fmt.Println(string(data))
+			//			fmt.Println(string(data))
+			_ = data
 		}
 		if scrollID == nil {
 			break
